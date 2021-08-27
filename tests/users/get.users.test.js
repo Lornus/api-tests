@@ -7,6 +7,5 @@ describe('User can', function (){
         //const body = JSON.parse(response.body)
         // assert(body.id == 6036a50333d65c355e25f050, `Expectet body to have ID ${body.id}` )
         assert(response === true)
-
     })
 })
