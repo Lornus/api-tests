@@ -1,0 +1,23 @@
+{
+  "name": "api-tests",
+  "version": "1.0.0",
+  "description": "Api tests of deployed site with node + got",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lornus/api-tests.git"
+  },
+  "author": "Lornus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lornus/api-tests/issues"
+  },
+  "homepage": "https://github.com/Lornus/api-tests#readme",
+  "dependencies": {
+    "got": "^11.8.2",
+    "mocha": "^9.1.0"
+  }
+}
