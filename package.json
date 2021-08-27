@@ -2,9 +2,8 @@
   "name": "api-tests",
   "version": "1.0.0",
   "description": "Api tests of deployed site with node + got",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
