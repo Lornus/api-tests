@@ -1,29 +1,53 @@
-const got = require('got')
+const jsonRequest = require('../request')
 const baseUrl = 'https://petstore.swagger.io/v2/pet'
 
- class PetController {
+class PetController {
     async getById(id) {
-        const response = await got(`${baseUrl}/${id}`)
-        return JSON.parse(response.body)
+        return (
+            await jsonRequest.url(`${baseUrl}/${id}`)
+                .send()
+        ).body
     }
 
     async getByStatus(status) {
         const endpoint = 'findByStatus'
-        const response = await got(`${baseUrl}/${endpoint}?`,
-            {
-                searchParams: new URLSearchParams({status: `${status}`})
-            })
-        return JSON.parse(response.body)
+        return (await jsonRequest.url(`${baseUrl}/${endpoint}?`)
+                .searchParams(`${status}`)
+                .send()
+        ).body
     }
 
     async getByTag(tag) {
         const endpoint = 'findByTags'
-        const response = await got(`${baseUrl}/${endpoint}?`,
-            {
-                searchParams: new URLSearchParams({tags: `${tag}`})
-            })
-        return JSON.parse(response.body)
+        return (await jsonRequest.url(`${baseUrl}/${endpoint}?`)
+                .searchParams(`${tag}`)
+                .send()
+        ).body
     }
+
+    async postNew(pet) {
+        return (await jsonRequest.url(`${baseUrl}`)
+                .method('POST')
+                .body(pet)
+                .send()
+        ).body
+    }
+
+    async update(pet) {
+        return (await jsonRequest.url(`${baseUrl}`)
+                .method('PUT')
+                .body(pet)
+                .send()
+        ).body
+    }
+
+    async delete(id) {
+        return (await jsonRequest.url(`${baseUrl}/${id}`)
+                .method('DELETE')
+                .send()
+        ).body
+    }
+
 }
 
 module.exports = new PetController()
