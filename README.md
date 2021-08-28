@@ -1,2 +1,2 @@
 # api-tests
-Api tests of deployed site with node + got 
+Api tests of swagger pet api with node + got 
