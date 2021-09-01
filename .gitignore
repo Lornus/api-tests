@@ -3,3 +3,4 @@
 ../api-tests/.DS_Store
 /node_modules/*
 /.idea/
+/helper/

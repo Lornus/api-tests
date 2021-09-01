@@ -15,11 +15,6 @@ class JsonRequest {
         return this
     }
 
-    searchParams(searchParams) {
-        this.options.searchParams = searchParams
-        return this
-    }
-
     body(body) {
         this.options.json = body
         return this

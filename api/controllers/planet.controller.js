@@ -1,7 +1,7 @@
 const jsonRequest = require('../request')
-const baseUrl = 'https://petstore.swagger.io/v2/pet'
+const baseUrl = 'http://localhost:2120/api/planets'
 
-class PetController {
+class PlanetController {
     async getById(id) {
         return (
             await jsonRequest.url(`${baseUrl}/${id}`)
@@ -9,30 +9,17 @@ class PetController {
         ).body
     }
 
-    async getByStatus(status) {
-        const endpoint = 'findByStatus'
-        return (await jsonRequest.url(`${baseUrl}/${endpoint}?`)
-                .searchParams(`${status}`)
-                .send()
-        ).body
-    }
 
-    async getByTag(tag) {
-        const endpoint = 'findByTags'
-        return (await jsonRequest.url(`${baseUrl}/${endpoint}?`)
-                .searchParams(`${tag}`)
-                .send()
-        ).body
-    }
 
-    async postNew(pet) {
+    //
+    async postNew(planet) {
         return (await jsonRequest.url(`${baseUrl}`)
                 .method('POST')
-                .body(pet)
+                .body(planet)
                 .send()
         ).body
     }
-
+    //
     async update(pet) {
         return (await jsonRequest.url(`${baseUrl}`)
                 .method('PUT')
@@ -40,7 +27,7 @@ class PetController {
                 .send()
         ).body
     }
-
+    //
     async delete(id) {
         return (await jsonRequest.url(`${baseUrl}/${id}`)
                 .method('DELETE')
@@ -50,4 +37,4 @@ class PetController {
 
 }
 
-module.exports = new PetController()
+module.exports = new PlanetController()
